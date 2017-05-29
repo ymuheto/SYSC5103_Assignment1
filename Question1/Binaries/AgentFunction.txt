@@ -1,0 +1,18 @@
+; Agent Function
+; Rule [Environment State] -> [Action]
+; Environment State [object, distance, direction]
+; object: goal, ball
+; distance: far, close
+; direction: same, different
+; Action [command, direction, power, wait]
+; command: dash, kick, turn
+; direction: -180.0 to 180.0
+; power: 0, 1, ... , 100, ...
+; wait: wait
+[ball,far,same] -> [dash,,10]
+[ball,far,different] -> [turn]
+[ball,close,same] -> [turn,40,,wait]
+[ball,close,different] -> [turn,40,,wait]
+[ball,close,same]|[goal] -> [kick,,100]
+[ball,close,different]|[goal] -> [kick,,100]
+[goal] -> [turn,40,,wait]

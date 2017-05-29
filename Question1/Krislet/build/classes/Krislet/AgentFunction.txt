@@ -1,0 +1,8 @@
+; Agent Function
+; [object, distance, direction]
+; [command, direction, power, wait]
+[ball,far,same] -> [dash,,10]
+[ball,far,different] -> [turn]
+[ball,close] -> [turn,40,,wait]
+[ball,close]|[goal] -> [kick]
+[goal] -> [turn,40,,wait]
